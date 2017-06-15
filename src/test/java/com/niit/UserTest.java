@@ -25,7 +25,7 @@ user.setZip(500016);
 user.setConpassword("omnamah");
 user.setEmail("edgarsindole@gmail.com");
 user.setPassword("omnamah");
-user.setPhone(990873072);
+user.setPhone("9908730720");
 user.setRole("ROLE_USER");
 userDAO.saveOrUpdate(user);
 System.out.println("Saved");

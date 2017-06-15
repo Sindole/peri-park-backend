@@ -14,8 +14,11 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.backend.dao.CategoryDAO;
+import com.niit.backend.dao.CategoryDAOImpl;
 import com.niit.backend.dao.UserDAO;
 import com.niit.backend.dao.UserDAOImpl;
+import com.niit.backend.model.Category;
 import com.niit.backend.model.User;
 
 @Configuration
@@ -51,6 +54,7 @@ public class ApplicationConfig {
 		LocalSessionFactoryBuilder sessBuild = new LocalSessionFactoryBuilder(datasource);
 		sessBuild.addProperties(getHibernateProperties());
 		sessBuild.addAnnotatedClass(User.class);
+		sessBuild.addAnnotatedClass(Category.class);
 		return sessBuild.buildSessionFactory();
 		
 	}
@@ -76,16 +80,16 @@ public class ApplicationConfig {
 		return new User();
 	}
 	
+	@Bean(name="categoryDAO")
+	public CategoryDAO getCategoryDAOImpl(SessionFactory sess)
+	{
+		return new CategoryDAOImpl();
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Bean(name="cat")
+	public Category getCategory(SessionFactory sess)
+	{
+		return new Category();
+	}
 	
 }

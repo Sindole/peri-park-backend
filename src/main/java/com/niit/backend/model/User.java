@@ -37,7 +37,7 @@ private String state;
 @NotNull(message="Zip code can't be blank")
 private int zip;
 @NotNull(message="PhoneNumber can't be blank")
-private double phone;
+private String phone;
 private String role;
 private String enabled;
 public int getUserid() {
@@ -109,10 +109,10 @@ public int getZip() {
 public void setZip(int zip) {
 	this.zip = zip;
 }
-public double getPhone() {
+public String getPhone() {
 	return phone;
 }
-public void setPhone(double phone) {
+public void setPhone(String phone) {
 	this.phone = phone;
 }
 public String getRole() {
