@@ -1,5 +1,20 @@
 package com.niit.backend.dao;
 
-public class ProductDAO {
+import java.util.List;
+
+import com.niit.backend.model.Product;
+
+public interface ProductDAO {
+	
+	public boolean saveOrUpdate(Product prod);
+	
+	public boolean delete(Product prod);
+	
+	public Product get(String name);
+	
+	public List<Product> list();
+	
+	public Product getById(int id);
+	
 
 }

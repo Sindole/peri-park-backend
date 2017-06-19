@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.backend.model.Category;
+import com.niit.backend.model.User;
 
 @Repository(value="categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
@@ -50,7 +51,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 			Transaction t=s.beginTransaction();
 			s.delete(cat);
 			t.commit();
-			//sessionFactory.getCurrentSession().delete(user);
+			sessionFactory.getCurrentSession().delete(cat);
 			return true;
 		}
 		catch(Exception e)
@@ -71,8 +72,17 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	public Category getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		try
+		{
+			return sessionFactory.openSession().createQuery("from Category where catid=:id", Category.class).setParameter("catid", id).getSingleResult();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return null;
+		}
+		
+		
 	}
 
 }

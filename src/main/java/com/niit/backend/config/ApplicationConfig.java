@@ -16,9 +16,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.backend.dao.CategoryDAO;
 import com.niit.backend.dao.CategoryDAOImpl;
+import com.niit.backend.dao.ProductDAO;
+import com.niit.backend.dao.ProductDAOImpl;
+import com.niit.backend.dao.SupplierDAO;
+import com.niit.backend.dao.SupplierDAOImpl;
 import com.niit.backend.dao.UserDAO;
 import com.niit.backend.dao.UserDAOImpl;
 import com.niit.backend.model.Category;
+import com.niit.backend.model.Product;
+import com.niit.backend.model.Supplier;
 import com.niit.backend.model.User;
 
 @Configuration
@@ -55,6 +61,8 @@ public class ApplicationConfig {
 		sessBuild.addProperties(getHibernateProperties());
 		sessBuild.addAnnotatedClass(User.class);
 		sessBuild.addAnnotatedClass(Category.class);
+		sessBuild.addAnnotatedClass(Product.class);
+		sessBuild.addAnnotatedClass(Supplier.class);
 		return sessBuild.buildSessionFactory();
 		
 	}
@@ -90,6 +98,30 @@ public class ApplicationConfig {
 	public Category getCategory(SessionFactory sess)
 	{
 		return new Category();
+	}
+	
+	@Bean(name="productDAO")
+	public ProductDAO getProductDAOImpl(SessionFactory sess)
+	{
+		return new ProductDAOImpl();
+	}
+	
+	@Bean(name="prod")
+	public Product getProduct(SessionFactory sess)
+	{
+		return new Product();
+	}
+	
+	@Bean(name="supplierDAO")
+	public SupplierDAO getSupplierDAOImpl(SessionFactory sess)
+	{
+		return new SupplierDAOImpl();
+	}
+	
+	@Bean(name="sup")
+	public Supplier getSupplier(SessionFactory sess)
+	{
+		return new Supplier();
 	}
 	
 }
