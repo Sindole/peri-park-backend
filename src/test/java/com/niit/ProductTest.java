@@ -16,7 +16,7 @@ AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContex
 context.scan("com");
 context.refresh();
 
-ProductDAO prodDAO=(ProductDAO)context.getBean("productDAO");
+/*ProductDAO prodDAO=(ProductDAO)context.getBean("productDAO");
 Product prod=(Product)context.getBean("prod");
 
 prod.setProdname("Apple LED Monitor");
@@ -26,7 +26,7 @@ prod.setProddesc("This is an LED Monitor with HD Resolution and dimensions are 2
 prod.setQuantity(2);
 
 prodDAO.saveOrUpdate(prod);
-System.out.println("Product Details are entered");
+System.out.println("Product Details are entered");*/
 
 	}
 
